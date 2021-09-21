@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Registration System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--   login page section start -->
+      <section id="login-page">
+        <div id="login-area">
+            <h1 class="text-center">Welcome To </h1>
+            <h1 class="text-center">University Course Registration System</h1>
+          </div>
+         
+            <div class="col-11 col-md-7 mx-auto" id="name-area">
+                <h4>Enter Your Name</h4>
+                
+                    <input id="name" class="form-control" placeholder="Your Name" type="text" required/>
+           
+            <br>
+            <input id="btn" class="btn btn-success" type="button" value="Enter">
+                
+            
+            </div>
+      </section>
+
+      <!-- login page section end -->
+
+
+      <!-- home page section start -->
+      <section id="home-page">
+          <div class="header">
+              <h1 class="text-center mb-3">Course Registration System</h1>
+
+          </div>
+
+          <div class="container">
+              <div class='row'>
+                  
+                    <div id="first-div" class="col-md-3  shadow-div ml-3">
+                        <div class="card" >
+                            <img class="card-img-top img-responsive mx-auto" src="images/img_avatar1.png" alt="Card image">
+                            <div class="card-body mx-auto">
+                              <h4 class="card-title">Hi <span id="student-name"></span></h4>
+                              <p class="card-text">Student ID: 15-854-2</p>
+                              <p class="card-text">Department : CSE</p>
+                              
+                            </div>
+                          </div>
+                    </div>
+                  
+                  <div id="second-div" class="col-md-5 mx-auto shadow-div">
+                    
+
+                    <div  id="add-course-area">
+                        <h4>Add New Course</h4>
+                        
+                            <input id="coursename" class="form-control" placeholder="Course Name" type="text" required/>
+                   
+                    <br>
+                    <input id="btnAdd" class="btn btn-success" type="button" value="Add">
+                        
+                    
+                    </div>
+
+                    <div id="list" class="mt-5">
+                        <h4>Course List:</h4>
+                        <ul id="course-list">
+                            
+                        </ul>
+                    </div>
+
+                    
+
+
+                </div>
+                <div id="third-div" class="col-md-3 shadow-div mr-3">
+                    <div class="card bg-info">
+                        <div class="card-body text-center">
+                          <p class="card-text mb-1">New Course</p>
+                          <h4 id="new-course" class="card-text ">00</h4>
+                        </div>
+                    </div>
+
+                    <div class="card bg-warning mt-4">
+                        <div class="card-body text-center">
+                          <p class="card-text mb-1">Cancelled</p>
+                          <h4 class="card-text ">00</h4>
+                        </div>
+                    </div>
+
+                    <div class="card bg-success mt-4">
+                        <div class="card-body text-center">
+                          <p class="card-text mb-1">Total Courses</p>
+                          <h4 id="total-course" class="card-text "> <span id="total-course-span">20</span></h4>
+                        </div>
+                    </div>
+                   <div></div>
+
+                </div>
+
+              </div>
+
+          </div>
+
+      </section>
+      <!-- home page section end -->
+    
+    <footer>
+
+        <p class="footer-heart text-center">
+            Made with &#10084; by <a href="https://www.linkedin.com/in/rakibul21">Rakibul</a>
+          </p>
+          
+    </footer>
+
+
+
+
+
+
+    <script>
+        
+        
+        const btn= document.getElementById('btn');
+        btn.addEventListener('click', function(){
+        const name= document.getElementById('name').value;
+        if(name==""){
+            alert('Please Enter Your Name!');
+        }
+        else{
+            document.getElementById('login-page').style.display='none';
+            document.getElementById('home-page').style.display='block';
+            document.getElementById('student-name').innerText=name;
+        }
+        });
+
+        document.getElementById('btnAdd').addEventListener('click', function(){
+            let courseName= document.getElementById('coursename').value;
+        if (courseName=="") {
+            alert('Please Add Course!');
+            
+        } else {
+        
+        addCourseList(courseName);
+
+        let totalCourse= document.getElementById('total-course-span').innerHTML;
+        totalCourse= parseFloat(totalCourse);
+        console.log(totalCourse);
+        totalCourse++;
+        document.getElementById('total-course-span').innerHTML=totalCourse;
+
+        let newCourse= document.getElementById('new-course').innerHTML;
+        newCourse= parseFloat(newCourse);
+        newCourse++;
+        console.log(newCourse);
+        document.getElementById('new-course').innerHTML=newCourse;
+        document.getElementById('coursename').value="";
+            
+        }
+
+        })
+
+        function addCourseList(course){
+            let addCourse= document.getElementById('course-list');
+            let newTagLi= document.createElement('li');
+            newTagLi.innerHTML=course;
+            addCourse.appendChild(newTagLi);
+        }
+        
+
+
+
+    </script>
+</body>
+</html>
