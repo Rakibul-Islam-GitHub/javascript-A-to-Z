@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event Listner</title>
+</head>
+<body>
+    <h1>Javascript Event Listner!</h1>
+    <hr>
+    <ul  id="mylist">
+        <li id="firstitem" class="item">Lorem ipsum dolor sit amet.</li>
+        <li id="seconditem" class="item">Ea delectus illum quo! Error!</li>
+        <li id="thirditem" class="item">Distinctio culpa ipsa voluptas soluta!</li>
+        <li class="item">Dolorem tenetur quas facere accusantium?</li>
+        <li class="item">In saepe non cupiditate dolores?</li>
+    </ul>
+    <button id="btn">Click</button>
+
+    <script>
+
+         //this is 1st method to declare  the event listener
+        function mymouseevent() {
+            document.getElementById('seconditem').style.color='blue';
+            
+        }
+        const seconditem = document.getElementById('seconditem');
+        seconditem.onmouseover= mymouseevent;
+        
+
+
+         //this is 2nd method to declare  the event listener
+        document.getElementById('firstitem').addEventListener('click', function () {
+            document.getElementById('firstitem').style.color='red';
+        })
+
+        //this is 3rd method to declare  the event listener
+        function thirdmouseenter() {
+            document.getElementById('thirditem').style.fontSize='22px';
+        }
+        document.getElementById('thirditem').addEventListener('mouseenter', thirdmouseenter);
+
+        
+        document.getElementById('btn').addEventListener('click', function(){
+            document.body.style.backgroundColor='tomato';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Testing</title>
+    <style>
+        article{
+            border: 2px solid blueviolet;
+            border-radius: 15px;
+            margin: 15px;
+            padding: 8px;
+            width: 70%;
+        }
+        .author{
+            margin-top: -12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my blog!</h1>
+    <article>
+        <h3 class="title">Blog post-1</h3>
+        <p class="author">Author-1</p>
+        <p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor nisi ducimus qui distinctio totam magnam, beatae obcaecati tenetur. Tempora, officiis. Quia eum et amet repudiandae suscipit nam repellat molestias ipsam iure quod animi mollitia sit autem nisi quisquam odit, tempora qui vero voluptates voluptatem aperiam, ab impedit odio? Porro iure deleniti sunt temporibus quibusdam. Error.</p>
+    </article>
+    <article>
+        <h3 class="title">Blog post-2</h3>
+        <p class="author">Author-2</p>
+        <p class="desc">Repellendus eum, voluptas amet commodi sequi aperiam a consectetur architecto, necessitatibus soluta sed! Dolorem quis quisquam corporis tempore sit neque, labore quam earum. Facilis ab ad eaque eius aut voluptas, excepturi ea quia commodi eveniet dolorum adipisci veniam eos id repellendus sint tempore beatae exercitationem minima at, quasi magnam porro necessitatibus nam! Rerum, inventore quas.</p>
+    </article>
+    <article>
+        <h3 class="title">Blog post-3</h3>
+        <p class="author">Author-3</p>
+        <p class="desc">Ducimus quia dolore aliquam perferendis dolores doloribus totam a iste rerum iure ut officiis impedit, rem quo in ad illum autem eum vitae fuga tempora ab debitis nisi? Omnis cupiditate delectus vitae cumque, autem eos, suscipit tenetur ullam natus nulla reprehenderit beatae officiis velit recusandae repellendus obcaecati animi est fugit nesciunt magni sed dolores minus!</p>
+    </article>
+    <article>
+        <h3 class="title">Blog post-4</h3>
+        <p class="author">Author-4</p>
+        <p class="desc">Quia sapiente cum minima distinctio, sint delectus ea sunt quod, aperiam aspernatur itaque ab velit deserunt dolorum reprehenderit odio eius! Recusandae, molestiae est. Magni dignissimos eveniet nam aut recusandae, quidem earum expedita nemo error quas molestiae consequatur autem. Quod dolore, quasi cupiditate, atque quos ad dignissimos suscipit, numquam expedita consequatur laudantium ullam voluptate laborum architecto.</p>
+    </article>
+<!-- <article id="newarticle">
+
+</article> -->
+
+<script>
+    let authors = document.getElementsByClassName('author');  // it gives array like nodelist
+    for (let i = 0; i < authors.length; i+=2) {
+        const element = authors[i];
+        element.style.color='royalblue';
+        
+    }
+    // getElementsByTagName gives nodelist..
+    document.getElementsByTagName('h1')[0].style.marginLeft='15px'; 
+    document.getElementsByTagName('h1')[0].style.color='red';
+
+    // querySelector gives the first/one element which matches with the given css selector
+    let desc = document.querySelector('.desc');  // it gives array like nodelist
+    desc.style.color='green';
+    
+    // querySelectorAll gives all elements which matches with the given css selector
+    let title = document.querySelectorAll('h3.title');  // it gives array like nodelist
+    for (let i = 0; i < title.length; i++) {
+        const element = title[i];
+        element.style.color='tomato';
+    }
+
+    // create new post by javascript:
+    let newArticle= document.createElement('article');
+    const newTitle= document.createElement('h3');
+    newTitle.setAttribute('class', 'title');
+    newTitle.innerHTML="New Post Created by Javascript"
+    newArticle.appendChild(newTitle);
+    const newAuthor= document.createElement('p');
+    newAuthor.setAttribute('class','author');
+    newAuthor.innerHTML='Javascript';
+    newArticle.appendChild(newAuthor);
+    const newDesc= document.createElement('p');
+    newDesc.classList.add('desc');
+    newDesc.innerHTML='This is a new post.. This is creted by javascript..';
+    newArticle.appendChild(newDesc);
+    
+    
+    document.body.appendChild(newArticle);
+</script>
+</body>
+</html>
