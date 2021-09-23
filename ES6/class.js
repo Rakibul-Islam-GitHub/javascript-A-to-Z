@@ -26,7 +26,7 @@ class User {
   
   let user= new User('Rakibul');
   console.log(`Hi, ${user.getName()}`);  // 'Hi, Rakibul'  -using template literals
-  console.log(user.myName); // Rakibul   this will also access the variable from class..
+  console.log(user.myName); // Rakibul   this will also access the variable from class.
   user.getTask();  // my task
 
 
