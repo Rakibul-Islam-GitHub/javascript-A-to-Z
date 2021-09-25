@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Testing</title>
+    <style>
+        article{
+            border: 2px solid blueviolet;
+            border-radius: 15px;
+            margin: 15px;
+            padding: 8px;
+            width: 70%;
+        }
+        .author{
+            margin-top: -12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my blog!</h1>
+    
+<!-- <article id="newarticle">
+
+</article> -->
+
+<script>
+    // getting new posts by api call:
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(data => getPost(data))
+        .catch(error=>console.log(error));
+
+    function getPost(post){
+         
+        
+            for (let i = 0; i < 5; i++) {
+                const newPost = post[i].body;
+                const title = post[i].title;
+                const user= post[i].id;
+        
+                let newArticle= document.createElement('article');
+                const newTitle= document.createElement('h3');
+                newTitle.innerHTML=title;
+                newTitle.setAttribute('class', 'title');
+                newArticle.appendChild(newTitle);
+                const newAuthor= document.createElement('p');
+                newAuthor.setAttribute('class','author');
+                newAuthor.innerHTML=`User-${user}`;
+                newArticle.appendChild(newAuthor);
+                
+                const newDesc= document.createElement('p');
+                newDesc.classList.add('desc');
+                newDesc.innerHTML=newPost;
+                newArticle.appendChild(newDesc);
+                document.body.appendChild(newArticle);
+                
+            }
+    
+        }
+        
+    
+</script>
+</body>
+</html>
