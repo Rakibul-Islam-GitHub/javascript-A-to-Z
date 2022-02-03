@@ -81,6 +81,9 @@ footer{
     margin-top: 20px;
 }
 
+#dltbtn{
+    color: red;
+}
 
 @media screen and (max-width: 767px) {
     

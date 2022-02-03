@@ -19,7 +19,7 @@
             <div class="col-11 col-md-7 mx-auto" id="name-area">
                 <h4>Enter Your Name</h4>
                 
-                    <input id="name" class="form-control" placeholder="Your Name" type="text" required/>
+                    <input id="name" autocomplete="off" class="form-control" placeholder="Your Name" type="text" required/>
            
             <br>
             <input id="btn" class="btn btn-success" type="button" value="Enter">
@@ -89,7 +89,7 @@
                     <div class="card bg-warning mt-4">
                         <div class="card-body text-center">
                           <p class="card-text mb-1">Cancelled</p>
-                          <h4 class="card-text ">00</h4>
+                          <h4 class="card-text "> <span id="cancelledCourse">00</span> </h4>
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@
         }
         });
 
-        document.getElementById('btnAdd').addEventListener('click', function(){
+        document.getElementById('btnAdd').addEventListener('click',  function(){
             let courseName= document.getElementById('coursename').value;
         if (courseName=="") {
             alert('Please Add Course!');
@@ -165,14 +165,63 @@
 
         })
 
-        function addCourseList(course){
+        
+
+
+        
+        
+
+         function addCourseList(course){
             let addCourse= document.getElementById('course-list');
             let newTagLi= document.createElement('li');
             newTagLi.innerHTML=course;
+            let newTagBtn= document.createElement('button');
+            newTagBtn.setAttribute('id', 'dltbtn');
+            let btntext = document.createTextNode("X");
+            newTagBtn.appendChild(btntext);
             addCourse.appendChild(newTagLi);
+            newTagLi.appendChild(newTagBtn);
+
+            
+            
         }
         
+        /// event after clicking on course delete btn
+        
+        /// event delegation
+            document.addEventListener('click',function(e){
+            if(e.target && e.target.id== 'dltbtn'){
+                console.log('from dlt');
+                e.target.parentElement.style.display='none';
+                console.log();
 
+                /// making update of total courses, cancelledCourse
+                    let totalCourse= document.getElementById('total-course-span').innerHTML;
+                    totalCourse= parseFloat(totalCourse);
+                    console.log(totalCourse);
+                    totalCourse--;
+                    document.getElementById('total-course-span').innerHTML=totalCourse;
+
+                    let newCourse= document.getElementById('new-course').innerHTML;
+                    newCourse= parseFloat(newCourse);
+                    newCourse--;
+                    console.log(newCourse);
+                    document.getElementById('new-course').innerHTML=newCourse;
+                    document.getElementById('coursename').value="";
+
+                    let cancelledCourse= document.getElementById('cancelledCourse').innerHTML;
+                    cancelledCourse= parseFloat(cancelledCourse);
+                    cancelledCourse++;
+                    document.getElementById('cancelledCourse').innerHTML=cancelledCourse;
+                    document.getElementById('coursename').value="";
+            }
+        });
+        
+        
+
+        
+
+        
 
 
     </script>
