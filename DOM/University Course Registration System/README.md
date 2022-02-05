@@ -8,7 +8,7 @@
   - [Overview](#overview)
   - [The key Features](#the-key-features)
   - [Technologies Used](#Technologies-used)
-  - [Preview](#screenshot-&-preview)
+  - [Screenshot & Preview](#screenshot-&-preview)
   - [Links](#links)
   - [What I learned](#what-i-learned)
   - [Useful resources](#useful-resources)
@@ -40,10 +40,14 @@ This is a course registration web application that helps a student to add or can
 <br>
 
 ### Screenshot & Preview
-![Desktop View](/images/homepage.png)
+
+![Desktop View](images/course-reg-system.gif)
+
 <br>
 
-![Desktop View](/images/course-reg-system.gif)
+![Desktop View](images/homepage.png)
+
+
 
 
 
